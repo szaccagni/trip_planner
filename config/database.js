@@ -1,2 +1,5 @@
-const mongoose = require('mongoose')
-mongoose.connect(process.env.Database_URL)
+const mongoose = require('mongoose');
+
+mongoose.set('strictQuery', true)
+
+mongoose.connect(process.env.DATABASE_URL)
