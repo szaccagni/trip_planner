@@ -1,8 +1,10 @@
 <%- include('../partials/header') %>
 <%- include('../partials/nav') %>
 
-<% trips.forEach(function(t) { %>
-    <h3><%= t.macroLocation %></h3>
-<% }) %>
+<% if (trips) { %>
+    <% trips.forEach(function(t) { %>
+        <h3><%= t.macroLocation %></h3>
+    <% }) %>
+<% } %> 
 
 <%- include('../partials/footer') %>
