@@ -15,8 +15,8 @@ passport.use(new GoogleStrategy(
           if (user) return cb(null, user);
           user = await User.create({
             name: profile.displayName,
-            firstName: profile.name.givenName.charAt(0).toUpperCase() + profile.name.givenName.slice(1),
-            lastName: profile.name.familyName.charAt(0).toUpperCase() + profile.name.familyName.slice(1),
+            firstName: profile.name.givenName,
+            lastName: profile.name.familyName,
             googleId: profile.id,
             email: profile.emails[0].value,
             avatar: profile.photos[0].value

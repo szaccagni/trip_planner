@@ -1,10 +1,18 @@
 <%- include('../partials/header') %>
 <%- include('../partials/nav') %>
 
-<% if (trips) { %>
+<% if (trips.length > 0) { %>
     <% trips.forEach(function(t) { %>
         <h3><%= t.macroLocation %></h3>
     <% }) %>
-<% } %> 
+<% } else { %> 
+    <div class="home-pg-empty">
+        <div class="buttons">
+            <div class="container">
+                <a href="/trips/new" class="btn effect04" data-sm-link-text="CREATE A TRIP"><span>let's get planning</span></a>
+            </div>
+          </div>
+    </div>
+<% } %>
 
 <%- include('../partials/footer') %>
