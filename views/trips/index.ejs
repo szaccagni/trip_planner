@@ -2,16 +2,28 @@
 <%- include('../partials/nav') %>
 
 <% if (trips.length > 0) { %>
-    <% trips.forEach(function(t) { %>
-        <h3><%= t.macroLocation %></h3>
-    <% }) %>
+    <div class="trips-container">
+        <% trips.forEach(function(t) { %>
+            <div class="trip-square">
+                <a href="/trips/<%= t._id %>">
+                    <div class="trip-img">
+                        <img src="https://www.state.gov/wp-content/uploads/2019/04/Japan-2107x1406.jpg">
+                    </div>
+                    <div class="trip-square-text">
+                        <h3><%= t.macroLocation %></h3>
+                    </div>
+                </a>
+            </div>
+        <% }) %>
+    </div>
 <% } else { %> 
     <div class="home-pg-empty">
-        <div class="buttons">
-            <div class="container">
-                <a href="/trips/new" class="btn effect04" data-sm-link-text="CREATE A TRIP"><span>LET'S GET PLANNING</span></a>
-            </div>
-          </div>
+        <div>
+            <img src="https://i.imgur.com/YuefDHi.png">
+        </div>
+        <div class="home-pg-new-trip">
+            <a href="/trips/new">CREATE A TRIP</a>
+        </div>
     </div>
 <% } %>
 
