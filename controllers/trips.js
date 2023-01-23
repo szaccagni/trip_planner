@@ -1,8 +1,16 @@
 const Trip = require('../models/trip')
 
 module.exports = {
+    index,
     new: newTrip,
-    create
+    create,
+    show
+}
+
+function index(req, res) {
+    Trip.find({user: req.user}, function(err, trips) {
+        res.render('trips/index', {title: 'Your Trips', trips})
+    })
 }
 
 function newTrip(req, res) {
@@ -15,6 +23,14 @@ function create(req, res) {
     req.body.userAvatar = req.user.userAvatar
 
     Trip.create(req.body, function(err, newTrip) {
-        return res.redirect('/')
+        res.redirect(`/trips/${newTrip._id}`)
     })
+}
+
+function show(req, res) {
+    Trip.findById(req.params.id)
+        .populate('destinations')
+        .exec(function (err, trip) {
+            res.render('trips/show', {title: `${trip.macroLocation}`, trip})
+        })
 }
