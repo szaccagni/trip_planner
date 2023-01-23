@@ -2,7 +2,7 @@
 <%- include('../partials/nav') %>
 
 <% if (trips.length > 0) { %>
-    <div class="trips-container">
+    <div class="trips-container uniform-margin">
         <% trips.forEach(function(t) { %>
             <div class="trip-square">
                 <a href="/trips/<%= t._id %>">
@@ -17,12 +17,16 @@
         <% }) %>
     </div>
 <% } else { %> 
-    <div class="home-pg-empty">
+    <div class="home-pg-empty uniform-margin">
         <div>
             <img src="https://i.imgur.com/YuefDHi.png">
         </div>
-        <div class="home-pg-new-trip">
-            <a href="/trips/new">CREATE A TRIP</a>
+        <div id="home-pg-empty-btn">
+            <a href="/trips/new" class="clean-anchor">
+                <div class="home-pg-new-trip animate-btn">
+                    <span>CREATE A TRIP</span>
+                </div>
+            </a>
         </div>
     </div>
 <% } %>
