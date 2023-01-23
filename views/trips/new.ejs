@@ -1,13 +1,16 @@
 <%- include('../partials/header') %>
 <%- include('../partials/nav') %>
 
-<h3>Where To?</h3>
-<form action="/trips" method="POST">
-    <label>Country / Territory / State
-        <input type="text" name="macroLocation">
-    </label>
-    <input type="submit" value="Create Trip">
-</form>
+<div class="new-trip">
+    <div>WHERE TO?</div>
+    <form action="/trips" method="POST">
+        <label>Country / Territory / State
+            <input type="text" name="macroLocation">
+        </label>
+        <input type="submit" value="lets go">
+    </form>
+</div>
+
 
 
 <%- include('../partials/footer') %>
