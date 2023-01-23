@@ -21,7 +21,7 @@ const tripSchema = new Schema({
     destinations: [destinationSchema],
     macroLocation: {
         type: String,
-        require: true
+        required: true
     },
     user: {
         type: Schema.Types.ObjectId,
