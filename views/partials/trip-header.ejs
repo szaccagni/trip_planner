@@ -4,9 +4,14 @@
     </div>
 </div>
 <div class="trip-nav">
-    <a href="/" class="clean-anchor">
-    <div class="trip-nav-item nav-item-ative">
-        <span>route</span>
-    </div>
+    <a href="/trips/<%= trip._id %>" class="clean-anchor">
+        <div class="trip-nav-item" data-active-link="<%= activeLink %>" id="route">
+            route
+        </div>
+    </a>
+    <a href="/trips/<%= trip._id %>/destinations" class="clean-anchor">
+        <div class="trip-nav-item" data-active-link="<%= activeLink %>" id="details">
+            details
+        </div>
     </a>
 </div>

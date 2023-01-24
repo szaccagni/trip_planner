@@ -31,6 +31,9 @@ function show(req, res) {
     Trip.findById(req.params.id)
         .populate('destinations')
         .exec(function (err, trip) {
-            res.render('trips/show', {title: `${trip.macroLocation}`, trip})
+            res.render('trips/show', {
+                title: `${trip.macroLocation}`, 
+                activeLink: 'route',
+                trip})
         })
 }

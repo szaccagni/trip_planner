@@ -205,13 +205,14 @@ body, input[type=submit] {
   position: absolute;
   z-index: -1;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .trip-nav-item {
   height: 7vh;
   display: flex;
   align-items: center;
+  margin: 0 1.5rem;
 }
 
 .nav-item-ative {
