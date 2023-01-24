@@ -163,11 +163,9 @@ body, input[type=submit] {
 }
 
 .home-pg-new-trip {
-  text-decoration: none;
   font-size: 40px;
   border: 1px solid black;
   border-radius: 25px;
-  color: black;
   font-weight: 100;
   letter-spacing: 0.15em;
   padding: 0 20px;
@@ -265,6 +263,7 @@ body, input[type=submit] {
   box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
   margin: 0 1rem 3rem 1rem;
   position: relative;
+  box-sizing: border-box;
 }
 
 .trip-square-text {
@@ -272,8 +271,9 @@ body, input[type=submit] {
   text-align: left;
   font-size: 1.17em;
   font-weight: bold;
-  position:absolute;
-  bottom:0;
+  position: absolute;
+  bottom: 0;
+  width: calc(100% - 1.5rem);
 }
 
 .trip-img {
@@ -301,4 +301,14 @@ body, input[type=submit] {
 
 .sq-empty:hover {
   box-shadow: none;
+}
+
+.route {
+  width: 50%;
+  text-align: center;
+}
+
+.route-btn {
+  border: 1px solid black;
+  padding: 0 20px;
 }
