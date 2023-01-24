@@ -1,65 +1,23 @@
 <%- include('../partials/header') %>
 <%- include('../partials/nav') %>
+<%- include('../partials/trip-header') %>
 
-<div class="trip-header">
-    <div class="trip-header-title">
-        <%= trip.macroLocation %>
-    </div>
-</div>
-<div class="trip-nav">
-    <a href="/" class="clean-anchor">
-    <div class="trip-nav-item nav-item-ative">
-        <span>route</span>
-    </div>
-    </a>
-</div>
 <div class="trip-route uniform-padding">
-    <% if (trip.destinations.length > 0) { %>
-        <div class="flex-form">
-            <div class="route">
-                <% trip.destinations.forEach(function(d) { %>
-                    <div> <%= d.location %> </div>
-                <% }) %>
-            </div>
-            <div class="flex-form-submit">
-                <a href="/trips/new" class="clean-anchor">
-                    <div class="form-submit-div animate-btn route-btn seashell">
-                        <span>add a destination</span>
-                    </div>
-                </a>
-            </div>
+    <div class="flex-form">
+        <div class="route">
+        <% if (trip.destinations.length > 0) { %>
+            <% trip.destinations.forEach(function(d) { %>
+                <div> <%= d.location %> </div>
+            <% }) %>
+        <% } %>
         </div>
-
-    <% } else { %>
-        <form action="/trips/<%= trip._id %>/destinations" method="POST" class="flex-form">
-            <div class="flex-form-inputs">
-                <div>
-                    <label>Where are you leaving from?
-                        <input type="text" name="location">
-                    </label>
+        <div class="flex-form-submit">
+            <a href="/trips/<%= trip._id %>/destinations/new" class="clean-anchor">
+                <div class="form-submit-div animate-btn route-btn seashell">
+                    <span>add a destination</span>
                 </div>
-                <div>
-                    <label>Departure Date
-                        <input type="datetime-local" name="departure">
-                    </label>
-                </div>
-                <div>
-                    <label>Traveling By
-                        <select name="departsBy">
-                            <option value="Flight">Flight</option>
-                            <option value="Train">Train</option>
-                            <option value="Car">Car</option>
-                            <option value="Bus">Bus</option>
-                        </select>
-                    </label>
-                </div>
-            </div>
-            <div class="flex-form-submit">
-                <div class="animate-btn form-submit-div seashell">
-                    <input class="form-submit-input" type="submit" value="ADD LOCATION">
-                </div>
-            </div>
-        </form>
-    <% } %>    
+            </a>
+        </div>
+    </div>
 </div>
 <%- include('../partials/footer') %>

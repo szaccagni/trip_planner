@@ -1,0 +1,41 @@
+<%- include('../partials/header') %>
+<%- include('../partials/nav') %>
+<%- include('../partials/trip-header') %>
+
+<div class="trip-route uniform-padding">
+    <% if (trip.destinations.length > 0) { %>
+        <p>there are destinations</p>
+    <% } else { %>
+        <form action="/trips/<%= trip._id %>/destinations" method="POST" class="flex-form">
+            <div class="flex-form-inputs">
+                <div>
+                    <label>Where are you leaving from?
+                        <input type="text" name="location">
+                    </label>
+                </div>
+                <div>
+                    <label>Departure Date
+                        <input type="datetime-local" name="departure">
+                    </label>
+                </div>
+                <div>
+                    <label>Traveling By
+                        <select name="departsBy">
+                            <option value="Flight">Flight</option>
+                            <option value="Train">Train</option>
+                            <option value="Car">Car</option>
+                            <option value="Bus">Bus</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+            <div class="flex-form-submit">
+                <div class="animate-btn form-submit-div seashell">
+                    <input class="form-submit-input" type="submit" value="ADD LOCATION">
+                </div>
+            </div>
+        </form>
+    <% } %>    
+</div>
+
+<%- include('../partials/footer') %>

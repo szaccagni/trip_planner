@@ -23,7 +23,7 @@ function create(req, res) {
     req.body.userAvatar = req.user.userAvatar
 
     Trip.create(req.body, function(err, newTrip) {
-        res.redirect(`/trips/${newTrip._id}`)
+        res.redirect(`/trips/${newTrip._id}/destinations/new`)
     })
 }
 
