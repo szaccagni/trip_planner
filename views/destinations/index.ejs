@@ -2,6 +2,26 @@
 <%- include('../partials/nav') %>
 <%- include('../partials/trip-header') %>
 
-<p>destination details</p>
-
+    <% if (trip.destinations.length > 0) { %>
+        <div class="trip-route uniform-padding">
+            <% trip.destinations.forEach(function(d) { %>
+                <div class="destination-detail">
+                    <% if (d.arrival != null) { %>
+                        <div>
+                            arrive to <b><%= d.location %></b> 
+                            on <%=new Intl.DateTimeFormat('en-US', {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true,}).format(d.arrival) %> 
+                            by <%= d.arrivesBy %>
+                        </div>      
+                    <% } %> 
+                    <% if (d.departure != null) { %>
+                        <div>
+                            depart from <b><%= d.location %></b> 
+                            on <%=new Intl.DateTimeFormat('en-US', {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true,}).format(d.departure) %> 
+                            by <%= d.departsBy %>
+                        </div>  
+                    <% } %>
+                </div>
+            <% }) %>
+        </div>
+    <% } %>
 <%- include('../partials/footer') %>

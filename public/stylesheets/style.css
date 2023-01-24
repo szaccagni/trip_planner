@@ -12,6 +12,14 @@ body, input[type=submit] {
   line-height: 45px;
 }
 
+.hide {
+  display: none;
+}
+
+.edit-background {
+  background-color: #FFFAA0;
+}
+
 .uniform-margin {
   margin: 0 15rem;
 }
@@ -64,6 +72,8 @@ body, input[type=submit] {
 .clean-anchor {
   text-decoration: none;
   color: black;
+  cursor: pointer;
+  height: fit-content;
 }
 
 /* button styling */
@@ -135,6 +145,15 @@ body, input[type=submit] {
 
 .login-btn:hover {
   background-color: rgba(211,211,211,.5);
+}
+
+.circle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border: 1.5px solid black;
+  margin: 5px;
 }
 
 /* button styling end */
@@ -312,4 +331,10 @@ body, input[type=submit] {
 .route-btn {
   border: 1px solid black;
   padding: 0 20px;
+} 
+
+.destination-detail {
+  margin: 1rem 0 2rem 0;
+  padding:1rem;
+  text-align: center;
 }

@@ -1,0 +1,54 @@
+<%- include('../partials/header') %>
+<%- include('../partials/nav') %>
+<%- include('../partials/trip-header') %>
+
+<div class="trip-route uniform-padding">
+    <form action="" method="POST" class="flex-form">
+        <div class="flex-form-inputs">
+            <div>
+                <label>Destination
+                    <input type="text" name="location" value="<%= destination.location %>">
+                </label>
+            </div>
+            <div>
+                <label>Arrival Date
+                    <input type="datetime-local" name="arrival" value="<%= arrivesDate %>">
+                </label>
+            </div>
+            <div>
+                <label>Arriving By
+                    <select name="arrivesBy">
+                        <option></option>
+                        <option value="Flight" <%- destination.arrivesBy === 'Flight' ? 'selected' : '' %> >Flight</option>
+                        <option value="Train" <%- destination.arrivesBy === 'Train' ? 'selected' : '' %> >Train</option>
+                        <option value="Car" <%- destination.arrivesBy === 'Car' ? 'selected' : '' %> >Car</option>
+                        <option value="Bus" <%- destination.arrivesBy === 'Bus' ? 'selected' : '' %> >Bus</option>
+                    </select>
+                </label>
+            </div>   
+            <div>
+                <label>Departure Date
+                    <input type="datetime-local" name="departure" value="<%= departsDate %>">
+                </label>
+            </div>
+            <div>
+                <label>Departing By
+                    <select name="departsBy">
+                        <option></option>
+                        <option value="Flight" <%- destination.departsBy === 'Flight' ? 'selected' : '' %>>Flight</option>
+                        <option value="Train" <%- destination.departsBy === 'Train' ? 'selected' : '' %> >Train</option>
+                        <option value="Car" <%- destination.departsBy === 'Car' ? 'selected' : '' %> >Car</option>
+                        <option value="Bus" <%- destination.departsBy === 'Bus' ? 'selected' : '' %> >Bus</option>
+                    </select>
+                </label>
+            </div>   
+        </div>
+        <div class="flex-form-submit">
+            <div class="animate-btn form-submit-div seashell">
+                <input class="form-submit-input" type="submit" value="UPDATE">
+            </div>
+        </div>
+    </form>
+</div>
+
+<%- include('../partials/footer') %>
