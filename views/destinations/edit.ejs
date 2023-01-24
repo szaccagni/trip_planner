@@ -3,7 +3,7 @@
 <%- include('../partials/trip-header') %>
 
 <div class="trip-route uniform-padding">
-    <form action="" method="POST" class="flex-form">
+    <form action="/destinations/<%= destination._id %>?_method=PUT" method="POST" class="flex-form">
         <div class="flex-form-inputs">
             <div>
                 <label>Destination

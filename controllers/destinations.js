@@ -4,7 +4,8 @@ module.exports = {
     index,
     new : newDestination,
     create,
-    edit
+    edit,
+    update
 }
 
 function index(req,res) {
@@ -39,11 +40,17 @@ async function edit(req, res) {
     const trip = await Trip.findOne({'destinations._id' : req.params.id})
     const destination = trip.destinations.id(req.params.id)
     const arriveDt = destination.arrival
-    let arrivesDate = `${arriveDt.getFullYear()}-${(arriveDt.getMonth() + 1).toString().padStart(2, '0')}`
-    arrivesDate += `-${arriveDt.getDate().toString().padStart(2, '0')}T${arriveDt.toTimeString().slice(0, 5)}` 
+    let arrivesDate
+    let departsDate 
+    if (arriveDt) {
+        arrivesDate = `${arriveDt.getFullYear()}-${(arriveDt.getMonth() + 1).toString().padStart(2, '0')}`
+        arrivesDate += `-${arriveDt.getDate().toString().padStart(2, '0')}T${arriveDt.toTimeString().slice(0, 5)}` 
+    }
     const departDt = destination.departure
-    let departsDate = `${departDt.getFullYear()}-${(departDt.getMonth() + 1).toString().padStart(2, '0')}`
-    departsDate += `-${departDt.getDate().toString().padStart(2, '0')}T${departDt.toTimeString().slice(0, 5)}` 
+    if (departDt) {
+        departsDate = `${departDt.getFullYear()}-${(departDt.getMonth() + 1).toString().padStart(2, '0')}`
+        departsDate += `-${departDt.getDate().toString().padStart(2, '0')}T${departDt.toTimeString().slice(0, 5)}` 
+    }
     res.render('destinations/edit', {
         title: 'Edit your destination',
         activeLink: 'route',
@@ -52,4 +59,17 @@ async function edit(req, res) {
         arrivesDate,
         trip
     })
+}
+
+async function update(req, res, next) {
+    try {
+        const trip = await Trip.findOne({'destinations._id': req.params.id})
+        if (!trip) return res.redirect('/trips')
+        trip.destinations.remove(req.params.id)
+        trip.destinations.push(req.body)
+        await trip.save()
+        res.redirect(`/trips/${trip._id}`)
+    } catch(err) {
+        return next(err)
+    }
 }
