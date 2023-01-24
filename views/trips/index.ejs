@@ -2,19 +2,24 @@
 <%- include('../partials/nav') %>
 
 <% if (trips.length > 0) { %>
-    <div class="trips-container uniform-margin">
-        <% trips.forEach(function(t) { %>
-            <div class="trip-square">
-                <a href="/trips/<%= t._id %>">
-                    <div class="trip-img">
-                        <img src="https://www.state.gov/wp-content/uploads/2019/04/Japan-2107x1406.jpg">
-                    </div>
-                    <div class="trip-square-text">
-                        <h3><%= t.macroLocation %></h3>
-                    </div>
-                </a>
+    <div class="trips-container">
+    <% trips.forEach(function(t) { %>
+        <div class="trip-square">
+            <a href="/trips/<%= t._id %>">
+                <div class="trip-img">
+                    <img src="https://www.state.gov/wp-content/uploads/2019/04/Japan-2107x1406.jpg">
+                </div>
+                <div class="trip-square-text">
+                    <%= t.macroLocation %>
+                </div>
+            </a>
+        </div>
+    <% }) %>
+        <a href="/trips/new" class="trip-square sq-empty" >
+            <div>
+                <span>create a new trip</span>
             </div>
-        <% }) %>
+        </a>
     </div>
 <% } else { %> 
     <div class="home-pg-empty uniform-margin">

@@ -1,14 +1,24 @@
 <%- include('../partials/header') %>
 <%- include('../partials/nav') %>
 
-<div class="new-trip">
-    <div>WHERE TO?</div>
+<div class="uniform-padding">
+
     <form action="/trips" method="POST">
-        <label>Country / Territory / State
-            <input type="text" name="macroLocation">
-        </label>
-        <div>
-            <input class="form-submit" type="submit" value="lets go">
+        <div class="flex-form">
+            <div class="flex-form-inputs">
+                <div>WHERE TO?</div>
+                <div>
+                    <label>Country / Territory / State
+                        <input type="text" name="macroLocation">
+                    </label>
+                </div>
+            </div>
+            <div class="flex-form-submit">
+                <div></div>
+                <div class="animate-btn form-submit-div sage">
+                    <input class="form-submit-input" type="submit" value="lets go">
+                </div>
+            </div>
         </div>
     </form>
 </div>
