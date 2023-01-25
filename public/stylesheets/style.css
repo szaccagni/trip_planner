@@ -47,6 +47,10 @@ body, input[type=submit] {
   font-size: 2.25rem;
 }
 
+.nav-right a {
+  margin-left: 2rem;
+}
+
 .homepg {
   display: flex;
   flex-direction: column;
@@ -336,6 +340,7 @@ body, input[type=submit] {
 .route {
   width: 50%;
   text-align: center;
+  margin-left: 4rem;
 }
 
 .route-btn {

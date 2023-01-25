@@ -36,7 +36,7 @@ async function create(req, res) {
 
 function show(req, res) {
     Trip.findById(req.params.id, function(err, trip) {
-        trip.destinations.sort( (a,b) => a.departure - b.departure)
+        trip.destinations.sort( (a,b) => a.arrival - b.arrival)
         res.render('trips/show', {
             title: `${trip.macroLocation}`, 
             activeLink: 'route',

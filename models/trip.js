@@ -3,16 +3,16 @@ const Schema = mongoose.Schema
 
 const destinationSchema = new Schema({
     location: String,
-    arrival: Date,
+    arrival: {
+        type: Date,
+        default: ''
+    },
     departure: Date,
     arrivesBy: {
         type: String,
-        enum: ['Flight', 'Car', 'Bus', 'Train'],
+        default: ''
     },
-    departsBy: {
-        type: String,
-        enum: ['Flight', 'Car', 'Bus', 'Train'],
-    },
+    departsBy: String,
 }, {
     timestamps: true
 })
