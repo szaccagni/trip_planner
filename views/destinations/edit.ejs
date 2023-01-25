@@ -2,52 +2,66 @@
 <%- include('../partials/nav') %>
 <%- include('../partials/trip-header') %>
 
-<div class="trip-route uniform-padding">
-    <form action="/destinations/<%= destination._id %>?_method=PUT" method="POST" class="flex-form">
-        <div class="flex-form-inputs">
+<div class="trip-route flex-form uniform-padding">
+    <form action="/destinations/<%= destination._id %>?_method=PUT" method="POST" class="flex-form width70">
+        <div class="flex-form-inputs width70">
             <div>
                 <label>Destination
                     <input type="text" name="location" value="<%= destination.location %>">
                 </label>
             </div>
-            <div>
-                <label>Arrival Date
-                    <input type="datetime-local" name="arrival" value="<%= arrivesDate %>">
-                </label>
-            </div>
-            <div>
-                <label>Arriving By
-                    <select name="arrivesBy">
-                        <option></option>
-                        <option value="Flight" <%- destination.arrivesBy === 'Flight' ? 'selected' : '' %> >Flight</option>
-                        <option value="Train" <%- destination.arrivesBy === 'Train' ? 'selected' : '' %> >Train</option>
-                        <option value="Car" <%- destination.arrivesBy === 'Car' ? 'selected' : '' %> >Car</option>
-                        <option value="Bus" <%- destination.arrivesBy === 'Bus' ? 'selected' : '' %> >Bus</option>
-                    </select>
-                </label>
-            </div>   
-            <div>
-                <label>Departure Date
-                    <input type="datetime-local" name="departure" value="<%= departsDate %>">
-                </label>
-            </div>
-            <div>
-                <label>Departing By
-                    <select name="departsBy">
-                        <option></option>
-                        <option value="Flight" <%- destination.departsBy === 'Flight' ? 'selected' : '' %>>Flight</option>
-                        <option value="Train" <%- destination.departsBy === 'Train' ? 'selected' : '' %> >Train</option>
-                        <option value="Car" <%- destination.departsBy === 'Car' ? 'selected' : '' %> >Car</option>
-                        <option value="Bus" <%- destination.departsBy === 'Bus' ? 'selected' : '' %> >Bus</option>
-                    </select>
-                </label>
-            </div>   
+            <% if (arrivesDate) { %>
+                <div>
+                    <label>Arrival Date
+                        <input type="datetime-local" name="arrival" value="<%= arrivesDate %>">
+                    </label>
+                </div>
+                <div>
+                    <label>Arriving By
+                        <select name="arrivesBy">
+                            <option></option>
+                            <option value="Flight" <%- destination.arrivesBy === 'Flight' ? 'selected' : '' %> >Flight</option>
+                            <option value="Train" <%- destination.arrivesBy === 'Train' ? 'selected' : '' %> >Train</option>
+                            <option value="Car" <%- destination.arrivesBy === 'Car' ? 'selected' : '' %> >Car</option>
+                            <option value="Bus" <%- destination.arrivesBy === 'Bus' ? 'selected' : '' %> >Bus</option>
+                        </select>
+                    </label>
+                </div>   
+            <% } %>
+            <% if (departsDate) { %>
+                <div>
+                    <label>Departure Date
+                        <input type="datetime-local" name="departure" value="<%= departsDate %>">
+                    </label>
+                </div>
+                <div>
+                    <label>Departing By
+                        <select name="departsBy">
+                            <option></option>
+                            <option value="Flight" <%- destination.departsBy === 'Flight' ? 'selected' : '' %>>Flight</option>
+                            <option value="Train" <%- destination.departsBy === 'Train' ? 'selected' : '' %> >Train</option>
+                            <option value="Car" <%- destination.departsBy === 'Car' ? 'selected' : '' %> >Car</option>
+                            <option value="Bus" <%- destination.departsBy === 'Bus' ? 'selected' : '' %> >Bus</option>
+                        </select>
+                    </label>
+                </div>   
+            <% } %>
         </div>
-        <div class="flex-form-submit">
+        <div class="flex-form-submit-sm">
             <div class="animate-btn form-submit-div seashell">
                 <input class="form-submit-input" type="submit" value="UPDATE">
             </div>
         </div>
+    </form>
+    <form action="/destinations/<%= destination._id %>?_method=DELETE" method="POST">
+        <label>
+        <input style="display:none" type="submit">
+        <div class="form-submit-div animate-btn circle-btn red" style="cursor:pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+            </svg>  
+        </div>        
+       </label>
     </form>
 </div>
 

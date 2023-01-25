@@ -5,7 +5,8 @@ module.exports = {
     new : newDestination,
     create,
     edit,
-    update
+    update,
+    delete: deleteDestintion,
 }
 
 function index(req,res) {
@@ -67,6 +68,18 @@ async function update(req, res, next) {
         if (!trip) return res.redirect('/trips')
         trip.destinations.remove(req.params.id)
         trip.destinations.push(req.body)
+        await trip.save()
+        res.redirect(`/trips/${trip._id}`)
+    } catch(err) {
+        return next(err)
+    }
+}
+
+async function deleteDestintion(req, res, next) {
+    try {
+        const trip = await Trip.findOne({'destinations._id': req.params.id})
+        if (!trip) return res.redirect('/trips')
+        trip.destinations.remove(req.params.id)
         await trip.save()
         res.redirect(`/trips/${trip._id}`)
     } catch(err) {
