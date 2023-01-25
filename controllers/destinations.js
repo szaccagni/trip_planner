@@ -13,7 +13,7 @@ function index(req,res) {
     Trip.findById(req.params.id, function(err, trip) {
         trip.destinations.sort( (a,b) => a.arrival - b.arrival)
         res.render('destinations/index', {
-            title: 'Destination Details', 
+            title: 'Trip Details', 
             activeLink: 'details',
             trip
         })

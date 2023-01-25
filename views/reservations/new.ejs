@@ -1,0 +1,30 @@
+<%- include('../partials/header') %>
+<%- include('../partials/nav') %>
+<%- include('../partials/trip-header') %>
+
+<div class="trip-route uniform-padding">
+    <form action="/trips/<%= trip._id %>/reservations" method="POST" class="flex-form">
+        <div class="flex-form-inputs">
+            <label>Related To
+                <select name="destination">
+                    <option></option>
+                <% trip.destinations.forEach(function(d){ %>
+                    <option value="<%= d._id %>"><%= d.location %></option>
+                <% }) %>
+                </select>
+            </label>
+            <label>Type
+                <select name="reservationType">
+                    <option></option>
+                    <option value="lodging">lodging</option>
+                    <option value="activity">activity</option>
+                </select>
+            </label>
+        </div>
+        <div class="flex-form-submit">
+            <div class="animate-btn form-submit-div seashell">
+                <input class="form-submit-input" type="submit" value="ADD">
+            </div>
+        </div>
+    </form>
+</div>

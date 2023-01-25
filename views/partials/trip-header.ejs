@@ -10,9 +10,14 @@
         </div>
     </a>
     <% if (trip.destinations.length > 0) { %>
+    <a href="/trips/<%= trip._id %>/reservations" class="clean-anchor">
+        <div class="trip-nav-item" data-active-link="<%= activeLink %>" id="reservations">
+            reservations
+        </div>
+    </a>
     <a href="/trips/<%= trip._id %>/destinations" class="clean-anchor">
         <div class="trip-nav-item" data-active-link="<%= activeLink %>" id="details">
-            details
+            summary
         </div>
     </a>
     <% } %>

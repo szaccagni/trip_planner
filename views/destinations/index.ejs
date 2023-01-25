@@ -8,7 +8,7 @@
                 <div class="route">
                     <% trip.destinations.forEach(function(d) { %>
                         <div class="destination-detail">
-                                <div> <span class="hide">edit / update this leg of the journey: <a href="/destinations/<%= d._id %>/edit"><%= d.location %></a></span> </div>
+                                <div> <span class="hide">update or remove this leg of the journey: <a href="/destinations/<%= d._id %>/edit"><%= d.location %></a></span> </div>
                             <% if (d.arrival != null) { %>
                                 <div>
                                     arrive to <b><%= d.location %></b>

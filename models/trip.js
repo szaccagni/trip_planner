@@ -17,6 +17,18 @@ const destinationSchema = new Schema({
     timestamps: true
 })
 
+const reservationSchema = new Schema({
+    reservationType: {
+        type: String,
+        enum: ['lodging', 'activity']
+    },
+    name: String, 
+    destination: {
+        type: Schema.Types.ObjectId
+    }
+})
+
+
 const tripSchema = new Schema({
     destinations: [destinationSchema],
     macroLocation: {
@@ -31,7 +43,8 @@ const tripSchema = new Schema({
     userName: String,
     userAvatar: String,
     imgURL: String,
-    bannerColor: String
+    bannerColor: String,
+    reservations: [reservationSchema]
 }, {
     timestamps: true
 })
