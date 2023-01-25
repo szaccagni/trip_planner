@@ -5,7 +5,7 @@ const passport = require('passport')
 /* GET home page. */
 router.get('/', function(req, res, next) {
   if (req.isAuthenticated() ) res.redirect('/trips')
-  res.render('index', {title: 'APP NAME HERE'});
+  res.render('index', {title: 'psilo'});
 });
 
 // Google OAuth login route
