@@ -1,4 +1,5 @@
 const Trip = require('../models/trip')
+const getPhotoData = require('../config/getPhotoData')
 
 module.exports = {
     index,
@@ -17,10 +18,16 @@ function newTrip(req, res) {
     res.render('trips/new', {title: 'Create a New Trip'})
 }
 
-function create(req, res) {
+async function create(req, res) {
     req.body.user = req.user._id
     req.body.userName = req.user.userName
     req.body.userAvatar = req.user.userAvatar
+
+    const photoData = await getPhotoData(req.body.macroLocation)
+    console.log(photoData)
+
+    req.body.imgURL = photoData.photos[0].src.original
+    req.body.bannerColor = photoData.photos[0].avg_color
 
     Trip.create(req.body, function(err, newTrip) {
         res.redirect(`/trips/${newTrip._id}/destinations/new`)
@@ -36,3 +43,4 @@ function show(req, res) {
             trip})
     })
 }
+

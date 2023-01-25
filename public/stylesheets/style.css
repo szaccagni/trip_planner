@@ -209,7 +209,7 @@ body, input[type=submit] {
   top: 0;
   position: absolute;
   width: 100%;
-  background-color: #ffb7c5;
+  background-color: #FFFEF2;
   z-index: -1;
 }
 

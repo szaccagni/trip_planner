@@ -30,6 +30,8 @@ const tripSchema = new Schema({
     },
     userName: String,
     userAvatar: String,
+    imgURL: String,
+    bannerColor: String
 }, {
     timestamps: true
 })
