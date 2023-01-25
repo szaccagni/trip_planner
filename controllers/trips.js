@@ -28,12 +28,11 @@ function create(req, res) {
 }
 
 function show(req, res) {
-    Trip.findById(req.params.id)
-        .populate('destinations')
-        .exec(function (err, trip) {
-            res.render('trips/show', {
-                title: `${trip.macroLocation}`, 
-                activeLink: 'route',
-                trip})
-        })
+    Trip.findById(req.params.id, function(err, trip) {
+        trip.destinations.sort( (a,b) => a.departure - b.departure)
+        res.render('trips/show', {
+            title: `${trip.macroLocation}`, 
+            activeLink: 'route',
+            trip})
+    })
 }

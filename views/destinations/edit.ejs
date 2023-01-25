@@ -5,6 +5,11 @@
 <div class="trip-route flex-form uniform-padding">
     <form action="/destinations/<%= destination._id %>?_method=PUT" method="POST" class="flex-form width70">
         <div class="flex-form-inputs width70">
+            <% if (!arrivesDate) { %>
+                <div>
+                    starting your journey from:
+                </div>
+            <% } %>
             <div>
                 <label>Destination
                     <input type="text" name="location" value="<%= destination.location %>">

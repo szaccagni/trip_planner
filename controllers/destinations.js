@@ -11,6 +11,7 @@ module.exports = {
 
 function index(req,res) {
     Trip.findById(req.params.id, function(err, trip) {
+        trip.destinations.sort( (a,b) => a.departure - b.departure)
         res.render('destinations/index', {
             title: 'Destination Details', 
             activeLink: 'details',
