@@ -3,7 +3,7 @@
 <%- include('../partials/trip-header') %>
 
 <div class="trip-route uniform-padding">
-    <div id="error"></div>
+    <div id="error" class="center-me"></div>
     <form action="/trips/<%= trip._id %>/destinations" method="POST" class="flex-form" onsubmit="return validateNewDestination()" name="newDestination">
         <div class="flex-form-inputs">
             <div>

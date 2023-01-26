@@ -87,7 +87,7 @@ function validateNewDestination() {
     const departure = document.forms['newDestination']['departure'].value
     const departsBy = document.forms['newDestination']['departsBy'].value
     const error = document.querySelector('#error')
-    console.log(arrival, departure, error)
+    
     if (!arrival && departure == '') {
         error.innerText = 'Please enter your departure information!'
         return false

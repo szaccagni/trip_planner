@@ -88,6 +88,10 @@ body, input[type=submit] {
   height: fit-content;
 }
 
+#error {
+  color: red;
+}
+
 /* button styling */
 
 .animate-btn {
