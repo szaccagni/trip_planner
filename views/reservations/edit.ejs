@@ -9,7 +9,7 @@
                 <select name="destination">
                     <option></option>
                 <% trip.destinations.forEach(function(d){ %>
-                    <option value="<%= d._id %>" <%- 'tokyo' === d.location ? 'selected' : '' %>><%= d.location %></option>
+                    <option value="<%= d._id %>"><%= d.location %></option>
                 <% }) %>
                 </select>
             </label>
