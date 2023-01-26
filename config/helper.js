@@ -51,7 +51,7 @@ function groupByDays(trip) {
     })
     trip.destinations.forEach( d => {
         if (d.arrival) {
-            const newDestination = new Destination(d.location, `arrives in ${d.location} at ${d.arrival.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})} by ${d.arrivesBy}`, d._id)
+            const newDestination = new Destination(d.location, `arrive in ${d.location} at ${d.arrival.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})} by ${d.arrivesBy}`, d._id)
             const arrivalDMY = d.arrival.toLocaleDateString()
             const found = days.find(day => day.date === arrivalDMY)
             if (found) {
@@ -63,7 +63,7 @@ function groupByDays(trip) {
             }
         }
         if (d.departure) {
-            const newDestination = new Destination(d.location, `departs from ${d.location} at ${d.departure.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})} by ${d.departsBy}`, d._id)
+            const newDestination = new Destination(d.location, `depart from ${d.location} at ${d.departure.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})} by ${d.departsBy}`, d._id)
             const departureDMY = d.departure.toLocaleDateString()
             const found = days.find(day => day.date === departureDMY)
             if (found) {

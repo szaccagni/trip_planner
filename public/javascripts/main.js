@@ -81,3 +81,20 @@ function hoveredOverSquare() {
         })
     })
 }
+
+function validateNewDestination() {
+    const arrival = document.forms['newDestination']['arrival']
+    const departure = document.forms['newDestination']['departure'].value
+    const departsBy = document.forms['newDestination']['departsBy'].value
+    const error = document.querySelector('#error')
+    console.log(arrival, departure, error)
+    if (!arrival && departure == '') {
+        error.innerText = 'Please enter your departure information!'
+        return false
+    }
+
+    if (departure !== '' && departsBy == '') {
+        error.innerText = "Please enter 'Departing By'"
+        return false
+    }
+}

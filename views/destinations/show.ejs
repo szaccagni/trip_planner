@@ -10,7 +10,7 @@
                 <% if (destination.arrival) { %>
                     <div>Arriving 
                         <%=new Intl.DateTimeFormat('en-US', {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true,}).format(destination.arrival) %>
-                        By <%= destination.arriesBy %></div>
+                        By <%= destination.arrivesBy %></div>
                 <% } %>
                 <% if (destination.departure) { %>
                     <div>Departing 
