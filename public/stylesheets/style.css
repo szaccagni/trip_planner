@@ -369,3 +369,12 @@ body, input[type=submit] {
 .width70 {
   width: 70%;
 }
+
+.reservation-card {
+  background-color: #F5F5F5;
+  margin-bottom: 2rem;
+}
+
+.reservation-card hr {
+  width: 70%;
+}

@@ -72,12 +72,10 @@ function hoveredOverSquare() {
         const tripImg = square.querySelector('.trip-img')
 
         square.addEventListener('mouseover', function(e) {
-            console.log('test')
             if (trashcan) trashcan.classList.remove('hide')
             if (tripImg) tripImg.classList.remove('trip-img-pad')
         })
         square.addEventListener('mouseout', function(e) {
-            console.log('i worked')
             if (trashcan) trashcan.classList.add('hide')
             if (tripImg) tripImg.classList.add('trip-img-pad')
         })

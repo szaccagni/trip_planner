@@ -20,8 +20,9 @@ const destinationSchema = new Schema({
 
 const reservationSchema = new Schema({
     destination: {
-        type: Schema.Types.ObjectId
+        type: Schema.Types.ObjectId,
     },
+    
     reservationType: {
         type: String,
         enum: ['lodging', 'activity']

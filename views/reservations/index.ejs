@@ -6,8 +6,14 @@
     <div class="flex-form">
         <div class="route">
             <% if (trip.reservations.length > 0) { %>
-                <% trip.reservations.forEach(function(r) { %>
-                    <div> <%= r.reservationType %> </div>
+                <% days.forEach( function(day) { %>
+                    <div class="reservation-card"> 
+                        <div class="day"><%= day.date %></div>
+                        <hr>
+                        <% day.activites.forEach( function(a) { %>
+                            <div class="activity"><%= a.name %></div>
+                        <% }) %>
+                    </div>
                 <% }) %>
             <% } else { %>
                 you haven't added any reservations details yet!
