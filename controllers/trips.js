@@ -5,7 +5,8 @@ module.exports = {
     index,
     new: newTrip,
     create,
-    show
+    show,
+    delete: deleteTrip
 }
 
 function index(req, res) {
@@ -44,3 +45,12 @@ function show(req, res) {
     })
 }
 
+async function deleteTrip(req, res, next) {
+    try {
+        await Trip.deleteOne({_id: req.params.id})
+        res.redirect('/trips')
+    } catch(err) {
+        return next(err)
+    }
+
+}

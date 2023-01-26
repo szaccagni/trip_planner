@@ -29,6 +29,7 @@ function newReservation(req, res) {
 function create(req, res) {
     Trip.findById(req.params.id, function(err, trip) {
         trip.reservations.push(req.body)
+        const destination = trip.destinations.id(req.body.destination)
         trip.save(function(err) {
             res.redirect(`/trips/${trip._id}/reservations`)
         })

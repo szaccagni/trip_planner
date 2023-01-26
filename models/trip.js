@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
+
 const destinationSchema = new Schema({
     location: String,
     arrival: {
@@ -18,16 +19,18 @@ const destinationSchema = new Schema({
 })
 
 const reservationSchema = new Schema({
+    destination: {
+        type: Schema.Types.ObjectId
+    },
     reservationType: {
         type: String,
         enum: ['lodging', 'activity']
     },
     name: String, 
-    destination: {
-        type: Schema.Types.ObjectId
-    }
+    start: Date,
+    end: Date,
+    bookingId: String
 })
-
 
 const tripSchema = new Schema({
     destinations: [destinationSchema],

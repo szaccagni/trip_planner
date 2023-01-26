@@ -24,11 +24,13 @@ const icons = {
 const navItems = document.querySelectorAll('.trip-nav-item')
 const proverb = document.getElementById('login-proverb')
 const travelIcons = document.querySelectorAll('.traval-icons')
+const tripSquares = document.querySelectorAll('.trip-square')
 
 document.addEventListener('DOMContentLoaded', function() {
     if (document.querySelector('.trip-nav')) activeNavItem()
     if (proverb) loadRandomQuote()
     if (travelIcons) loadTravelIcons()
+    if (tripSquares) hoveredOverSquare()
 })
 
 function activeNavItem() {
@@ -62,4 +64,22 @@ function loadTravelIcons() {
         if(val !== '') icon.innerHTML = icons[val].svg
         if(val === 'Flight') icon.style = 'transform: rotate(180deg);'
     })  
+}
+
+function hoveredOverSquare() {
+    tripSquares.forEach( square => {
+        const trashcan = square.querySelector('.trashcan')
+        const tripImg = square.querySelector('.trip-img')
+
+        square.addEventListener('mouseover', function(e) {
+            console.log('test')
+            if (trashcan) trashcan.classList.remove('hide')
+            if (tripImg) tripImg.classList.remove('trip-img-pad')
+        })
+        square.addEventListener('mouseout', function(e) {
+            console.log('i worked')
+            if (trashcan) trashcan.classList.add('hide')
+            if (tripImg) tripImg.classList.add('trip-img-pad')
+        })
+    })
 }
