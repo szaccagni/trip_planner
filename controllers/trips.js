@@ -1,5 +1,5 @@
 const Trip = require('../models/trip')
-const getPhotoData = require('../config/getPhotoData')
+const helper = require('../config/helper')
 
 module.exports = {
     index,
@@ -24,7 +24,7 @@ async function create(req, res) {
     req.body.userName = req.user.userName
     req.body.userAvatar = req.user.userAvatar
 
-    const photoData = await getPhotoData(req.body.macroLocation)
+    const photoData = await helper.getPhotoData(req.body.macroLocation)
     console.log(photoData)
 
     req.body.imgURL = photoData.photos[0].src.original

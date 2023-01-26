@@ -1,7 +1,9 @@
 const Trip = require('../models/trip')
+const helper = require('../config/helper')
 
 module.exports = {
     index,
+    show,
     new : newDestination,
     create,
     edit,
@@ -11,13 +13,26 @@ module.exports = {
 
 function index(req,res) {
     Trip.findById(req.params.id, function(err, trip) {
-        trip.destinations.sort( (a,b) => a.arrival - b.arrival)
+        // trip.destinations.sort( (a,b) => a.arrival - b.arrival)
+        let days = helper.groupByDays(trip)
         res.render('destinations/index', {
             title: 'Trip Details', 
             activeLink: 'details',
-            trip
+            trip,
+            days
         })
     })    
+}
+
+async function show(req,res) {
+    const trip = await Trip.findOne({'destinations._id' : req.params.id})
+    const destination = trip.destinations.id(req.params.id)
+    res.render('destinations/show', {
+        title: 'Edit your destination',
+        activeLink: 'route',
+        destination,
+        trip
+    })
 }
 
 function newDestination(req, res) {

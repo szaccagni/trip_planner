@@ -28,6 +28,14 @@ body, input[type=submit] {
   padding: 0 15rem
 }
 
+.center-me {
+  display: flex;
+  justify-content: center;
+}
+.center-me>div{
+  margin:0;
+}
+
 .nav-wrapper {
   height: 3rem;
   padding: 3rem 0;

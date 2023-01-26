@@ -8,7 +8,7 @@
             <% if (trip.destinations.length > 0) { %>
                 <% trip.destinations.forEach(function(d) { %>
                     <div value="<%= d.arrivesBy %>" class="traval-icons"></div>
-                    <div> <%= d.location %> </div>
+                    <div> <a class="clean-anchor" href="/destinations/<%=d._id%>"><%= d.location %></a> </div>
                 <% }) %>
             <% } else { %>
                 you haven't added any destination details yet!

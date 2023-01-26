@@ -7,13 +7,17 @@
         <div class="route">
             <% if (trip.reservations.length > 0) { %>
                 <% days.forEach( function(day) { %>
-                    <div class="reservation-card"> 
-                        <div class="day"><%= day.date %></div>
-                        <hr>
-                        <% day.activites.forEach( function(a) { %>
-                            <div class="activity"><%= a.name %></div>
-                        <% }) %>
-                    </div>
+                    <% if (day.activites.length > 0) {  %>
+                        <div class="reservation-card"> 
+                            <div class="day"><%= day.date %></div>
+                            <hr>
+                            <% day.activites.forEach( function(a) { %>
+                                <div class="activity">
+                                    <a class="clean-anchor" href="/reservations/<%=a._id%>"><%= a.name %></a>
+                                </div>
+                            <% }) %>
+                        </div>
+                    <% } %>
                 <% }) %>
             <% } else { %>
                 you haven't added any reservations details yet!
