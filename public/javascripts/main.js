@@ -23,12 +23,14 @@ const icons = {
 
 const navItems = document.querySelectorAll('.trip-nav-item')
 const proverb = document.getElementById('login-proverb')
+const loginLogo = document.getElementById('login-logo')
 const travelIcons = document.querySelectorAll('.traval-icons')
 const tripSquares = document.querySelectorAll('.trip-square')
 
 document.addEventListener('DOMContentLoaded', function() {
     if (document.querySelector('.trip-nav')) activeNavItem()
     if (proverb) loadRandomQuote()
+    if (loginLogo) partyLogo()
     if (travelIcons) loadTravelIcons()
     if (tripSquares) hoveredOverSquare()
 })
@@ -41,21 +43,18 @@ function activeNavItem() {
     })
 }
 
-function editRoute(e) {
-    const route = document.querySelector('.route')
-    route.querySelectorAll('span').forEach(span => {
-        if (span.classList) span.classList.contains('hide') ? span.classList.remove('hide') : span.classList.add('hide')
-    })
-    const editBtn = document.getElementById('edit-route')
-    editBtn.classList.contains('animate-btn') ? editBtn.classList.remove('animate-btn') : editBtn.classList.add('animate-btn')
-    editBtn.classList.contains('edit-background') ? editBtn.classList.remove('edit-background') : editBtn.classList.add('edit-background')
-}
-
 function loadRandomQuote() {
     const proverbsLen = proverbs.length
     const randIdx = Math.floor(Math.random() * proverbsLen)
     const proverbSelected = proverbs[randIdx]
     proverb.innerText = proverbSelected
+}
+
+function partyLogo() {
+    console.log('i worked')
+    setInterval( el => {
+        el.src === 'https://i.imgur.com/hXisSr6.png' ? el.src = 'https://i.imgur.com/akgKFTD.png' :  el.src = 'https://i.imgur.com/hXisSr6.png'
+    }, 1000, loginLogo.querySelector('img'))
 }
 
 function loadTravelIcons() {

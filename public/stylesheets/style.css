@@ -36,6 +36,10 @@ body, input[type=submit] {
   margin:0;
 }
 
+#login-logo img {
+  width: 25%;
+}
+
 .nav-wrapper {
   height: 3rem;
   padding: 3rem 0;
