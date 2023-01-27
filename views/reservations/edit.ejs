@@ -6,7 +6,7 @@
     <form action="/reservations/<%= reservation._id %>?_method=PUT" method="POST" class="flex-form width70">
         <div class="flex-form-inputs width70">
             <label>Related To
-                <select name="destination">
+                <select name="destination" required>
                     <option></option>
                 <% trip.destinations.forEach(function(d){ %>
                     <option value="<%= d._id %>"><%= d.location %></option>
