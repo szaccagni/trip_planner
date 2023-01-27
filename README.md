@@ -28,7 +28,9 @@ psilo is a clean and streamlined platform to help you prepare for your next trip
 
 # Next Steps
 Items slated for future development include: 
+* Improved validations
 * Options to add more details on reservations 
 * Ability to add friends and share trips with them
 * Ability to change your trip photo 
 * A favorites catalog 
+* Mobile optimization
