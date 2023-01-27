@@ -21,6 +21,7 @@ psilo is a clean and streamlined platform to help you prepare for your next trip
 * Node.js
 * express 
 * monogoDB
+* Pexels API
 
 # Getting Started 
 [Click Here to Check Out psilo](https://trip-planner-sz-1212.herokuapp.com/)
