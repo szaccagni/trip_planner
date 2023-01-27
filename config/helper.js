@@ -21,8 +21,8 @@ module.exports = {
     Day
 }
 
-async function getPhotoData(query) {
-    const data= await fetch(`https://api.pexels.com/v1/search?query=${query}&per_page=1`, 
+async function getPhotoData(query, num) {
+    const data= await fetch(`https://api.pexels.com/v1/search?query=${query}&per_page=${num}`, 
     {
         method: "GET",
         headers: {

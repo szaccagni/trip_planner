@@ -6,7 +6,8 @@ module.exports = {
     new: newTrip,
     create,
     show,
-    delete: deleteTrip
+    delete: deleteTrip,
+    updateImg
 }
 
 function index(req, res) {
@@ -24,8 +25,7 @@ async function create(req, res) {
     req.body.userName = req.user.userName
     req.body.userAvatar = req.user.userAvatar
 
-    const photoData = await helper.getPhotoData(req.body.macroLocation)
-    console.log(photoData)
+    const photoData = await helper.getPhotoData(req.body.macroLocation, 1)
 
     req.body.imgURL = photoData.photos[0].src.original
     req.body.bannerColor = photoData.photos[0].avg_color
@@ -53,4 +53,15 @@ async function deleteTrip(req, res, next) {
         return next(err)
     }
 
+}
+
+function updateImg(req,res) {
+    Trip.findById(req.params.id, async function(err, trip) {
+        const photoData = await helper.getPhotoData(trip.macroLocation, 100)
+        const randIdx = Math.floor(Math.random() * 100)
+        trip.imgURL = photoData.photos[randIdx].src.original
+        trip.bannerColor = photoData.photos[randIdx].avg_color
+        trip.save()
+        res.redirect('/trips')
+    })
 }

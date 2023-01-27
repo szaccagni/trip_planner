@@ -69,14 +69,17 @@ function hoveredOverSquare() {
     tripSquares.forEach( square => {
         const trashcan = square.querySelector('.trashcan')
         const tripImg = square.querySelector('.trip-img')
+        const update = square.querySelector('.update-img')
 
         square.addEventListener('mouseover', function(e) {
             if (trashcan) trashcan.classList.remove('hide')
             if (tripImg) tripImg.classList.remove('trip-img-pad')
+            update.classList.remove('hide')
         })
         square.addEventListener('mouseout', function(e) {
             if (trashcan) trashcan.classList.add('hide')
             if (tripImg) tripImg.classList.add('trip-img-pad')
+            update.classList.add('hide')
         })
     })
 }

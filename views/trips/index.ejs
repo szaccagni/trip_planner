@@ -11,6 +11,11 @@
                 </div>
                 <div class="trip-square-text">
                     <span><%= t.macroLocation %></span>
+                    <span class="update-img hide">
+                        <form action="/trips/<%= t._id %>?_method=PUT" method="POST">
+                            <input class="update-img-btn" type="submit" value="update image">
+                        </form>
+                    </span>
                     <span class="trashcan hide">
                         <form action="/trips/<%= t._id %>?_method=DELETE" method="POST">
                             <label>

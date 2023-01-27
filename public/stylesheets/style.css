@@ -354,6 +354,14 @@ body, input[type=submit] {
   object-fit:cover;
 }
 
+.update-img-btn {
+  font-weight: 300;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  color:grey;
+}
+
 .sq-empty {
   background-color: rgba(192,192,192, .25);
   display:flex;
