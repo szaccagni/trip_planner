@@ -154,6 +154,7 @@ body, input[type=submit] {
 .form-submit-div {
   height: fit-content;
   border-radius: 25px;
+  width: fit-content;
 }
 
 .seashell:before {
@@ -290,22 +291,27 @@ body, input[type=submit] {
   padding-top: 20px;
 }
 
-.flex-form {
+/* .flex-form {
   display: flex;
-}
+} */
 
-
+/* 
 .flex-form-inputs{
-  width: 50%;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-}
+} */
 
 .flex-form-submit {
-  width: 50%;
-  display: flex;
-  justify-content: center;
+  line-height: 45px;
+  margin: 15px 0;
+  font-size: .75rem;
+}
+
+.flex-form-inputs input {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 1rem;
+  line-height: 45px;
 }
 
 .flex-form-submit-sm {
