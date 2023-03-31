@@ -40,6 +40,10 @@ body, input[type=submit] {
   width: 25%;
 }
 
+#login-proverb {
+  text-align: center;
+}
+
 .nav-wrapper {
   height: 3rem;
   padding: 3rem 0;
@@ -69,6 +73,7 @@ body, input[type=submit] {
   align-items: center;
   justify-content: center;
   height: 100vh;
+  margin: 20px;
 }
 
 .homepg div {
@@ -79,10 +84,24 @@ body, input[type=submit] {
   font-weight: 600;
   font-family: Clarkson, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 22px;
+  display: flex;
+  justify-content: center;
+  width: 50%;
+}
+
+.login-title div {
+  width: 70%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.login-title span {
+  white-space: nowrap;
 }
 
 .sm-container {
-  width: 15%;
+  width: 250px;
 }
 
 .clean-anchor {
@@ -401,4 +420,14 @@ body, input[type=submit] {
 
 .reservation-card hr {
   width: 70%;
+}
+
+@media screen and (max-width: 550px) {
+  .homepg div {
+    margin: 10px 0;
+  }
+
+  #login-proverb {
+    width: 80%;
+  }
 }
