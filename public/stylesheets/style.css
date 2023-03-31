@@ -29,6 +29,7 @@ body, input[type=submit] {
   display: flex;
   justify-content: center;
 }
+
 .center-me>div{
   margin:0;
 }
@@ -192,7 +193,7 @@ body, input[type=submit] {
   align-items: center;
   justify-content: center;
   padding: 12px;
-  border: 1.5px solid black;
+  border: 1px solid black;
   margin: 0 5px;
 }
 
@@ -326,6 +327,11 @@ body, input[type=submit] {
 
 .grid-column-left {
   text-align: left;
+}
+
+.grid-column-right {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .width-100 {

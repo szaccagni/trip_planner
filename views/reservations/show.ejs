@@ -3,8 +3,8 @@
 <%- include('../partials/trip-header') %>
 
 <div class="trip-route uniform-padding">
-    <div class="flex-form">
-        <div class="route">
+    <div class="grid-form">
+        <div class="grid-column width-100">
             <div class="reservation-card"> 
                 <div><%= reservation.name %></div>
                 <% if (reservation.start) { %>
@@ -18,7 +18,7 @@
                     <div>Booking Ref: <%= reservation.bookingId %></div>
             </div>
         </div>
-        <div class="flex-form-submit">
+        <div class="grid-column">
             <a href="/reservations/<%= reservation._id %>/edit" class="clean-anchor">
                 <div class="form-submit-div animate-btn circle-btn seashell" id="edit-route">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pen-fill" viewBox="0 0 16 16">

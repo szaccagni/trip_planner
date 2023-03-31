@@ -2,38 +2,50 @@
 <%- include('../partials/nav') %>
 <%- include('../partials/trip-header') %>
 
-<div class="trip-route flex-form uniform-padding">
-    <form action="/reservations/<%= reservation._id %>?_method=PUT" method="POST" class="flex-form width70">
-        <div class="flex-form-inputs width70">
-            <label>Related To
-                <select name="destination" required>
-                    <option></option>
-                <% trip.destinations.forEach(function(d){ %>
-                    <option value="<%= d._id %>"><%= d.location %></option>
-                <% }) %>
-                </select>
-            </label>
-            <label>Type
-                <select name="reservationType">
-                    <option></option>
-                    <option value="lodging" <%- reservation.reservationType === 'lodging' ? 'selected' : '' %>>lodging</option>
-                    <option value="activity"  <%- reservation.reservationType === 'activity' ? 'selected' : '' %>>activity</option>
-                </select>
-            </label>
-            <label>Name
-                <input type="text" name="name" value="<%= reservation.name %>">
-            </label>
-            <label>Start
-                <input type="datetime-local" name="start" value="<%= startDate %>">
-            </label>
-            <label>End
-                <input type="datetime-local" name="end" value="<%= endDate %>">
-            </label>
-            <label>Booking Id / Reference
-                <input type="text" name="bookingId" value="<%= reservation.bookingId %>">
-            </label>
+<div class="trip-route center-me">
+    <form action="/reservations/<%= reservation._id %>?_method=PUT" method="POST" class="grid-form">
+        <div class="grid-column-left">
+            <div>
+                <label>Related To
+                    <select name="destination" required>
+                        <option></option>
+                    <% trip.destinations.forEach(function(d){ %>
+                        <option value="<%= d._id %>"><%= d.location %></option>
+                    <% }) %>
+                    </select>
+                </label>
+            </div>
+            <div>
+                <label>Type
+                    <select name="reservationType">
+                        <option></option>
+                        <option value="lodging" <%- reservation.reservationType === 'lodging' ? 'selected' : '' %>>lodging</option>
+                        <option value="activity"  <%- reservation.reservationType === 'activity' ? 'selected' : '' %>>activity</option>
+                    </select>
+                </label>
+            </div>
+            <div>
+                <label>Name
+                    <input type="text" name="name" value="<%= reservation.name %>">
+                </label>
+            </div>
+            <div>
+                <label>Start
+                    <input type="datetime-local" name="start" value="<%= startDate %>">
+                </label>
+            </div>
+            <div>
+                <label>End
+                    <input type="datetime-local" name="end" value="<%= endDate %>">
+                </label>
+            </div>
+            <div>
+                <label>Booking Id / Reference
+                    <input type="text" name="bookingId" value="<%= reservation.bookingId %>">
+                </label>
+            </div>
         </div>
-        <div class="flex-form-submit-sm">
+        <div class="grid-column-right">
             <div class="animate-btn form-submit-div seashell">
                 <input class="form-submit-input" type="submit" value="UPDATE">
             </div>
