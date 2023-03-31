@@ -249,6 +249,7 @@ body, input[type=submit] {
   height: 50vh;
   align-items: center;
   top: 0;
+  left: 0;
   position: absolute;
   width: 100%;
   background-color: #FFFEF2;
@@ -265,6 +266,7 @@ body, input[type=submit] {
   box-shadow: 0 1px 15px 0px rgb(0 0 0 / 20%);
   height: 7vh;
   top: 50vh;
+  left: 0;
   width: 100%;
   position: absolute;
   z-index: -1;
@@ -285,8 +287,9 @@ body, input[type=submit] {
 
 .trip-route {
   top: 57vh;
-  position: absolute;
+  left: 0;
   width: 100%;
+  position: absolute;
   box-sizing: border-box;
   padding-top: 20px;
 }
@@ -318,6 +321,11 @@ body, input[type=submit] {
   width: 30%;
   display: flex;
   justify-content: end;
+}
+
+.grid-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .trips-container {
@@ -402,10 +410,10 @@ body, input[type=submit] {
   box-shadow: none;
 }
 
-.route {
-  width: 50%;
+.grid-column {
   text-align: center;
-  margin-left: 4rem;
+  width: fit-content;
+  margin: 0 auto;
 }
 
 .route-btn {
