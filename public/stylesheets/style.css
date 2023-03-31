@@ -334,6 +334,11 @@ body, input[type=submit] {
   justify-content: flex-end;
 }
 
+.single-column {
+  text-align: center;
+  width: 80%;
+}
+
 .width-100 {
   width: 100%;
 }
