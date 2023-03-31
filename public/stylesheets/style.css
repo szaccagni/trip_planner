@@ -294,16 +294,6 @@ body, input[type=submit] {
   padding-top: 20px;
 }
 
-/* .flex-form {
-  display: flex;
-} */
-
-/* 
-.flex-form-inputs{
-  display: flex;
-  flex-direction: column;
-} */
-
 .flex-form-submit {
   line-height: 45px;
   margin: 15px 0;
@@ -326,6 +316,20 @@ body, input[type=submit] {
 .grid-form {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-column {
+  text-align: center;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.grid-column-left {
+  text-align: left;
+}
+
+.width-100 {
+  width: 100%;
 }
 
 .trips-container {
@@ -408,12 +412,6 @@ body, input[type=submit] {
 
 .sq-empty:hover {
   box-shadow: none;
-}
-
-.grid-column {
-  text-align: center;
-  width: fit-content;
-  margin: 0 auto;
 }
 
 .route-btn {

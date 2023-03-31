@@ -3,8 +3,8 @@
 <%- include('../partials/trip-header') %>
 
 <div class="trip-route uniform-padding">
-    <div class="flex-form">
-        <div class="route">
+    <div class="grid-form">
+        <div class="grid-column width-100">
             <% if (trip.reservations.length > 0) { %>
                 <% days.forEach( function(day) { %>
                     <% if (day.activites.length > 0) {  %>
@@ -23,7 +23,7 @@
                 you haven't added any reservations details yet!
             <% } %>
         </div>
-        <div class="flex-form-submit">
+        <div class="grid-column">
             <a href="/trips/<%= trip._id %>/reservations/new" class="clean-anchor">
                 <div class="form-submit-div animate-btn circle-btn seashell">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">

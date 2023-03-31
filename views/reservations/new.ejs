@@ -3,37 +3,49 @@
 <%- include('../partials/trip-header') %>
 
 <div class="trip-route uniform-padding">
-    <form action="/trips/<%= trip._id %>/reservations" method="POST" class="flex-form">
-        <div class="flex-form-inputs">
-            <label>Related To
-                <select name="destination">
-                    <option></option>
-                <% trip.destinations.forEach(function(d){ %>
-                    <option value="<%= d._id %>"><%= d.location %></option>
-                <% }) %>
-                </select>
-            </label>
-            <label>Type
-                <select name="reservationType">
-                    <option></option>
-                    <option value="lodging">lodging</option>
-                    <option value="activity">activity</option>
-                </select>
-            </label>
-            <label>Name
-                <input type="text" name="name" required> 
-            </label>
-            <label>Start
-                <input type="datetime-local" name="start" required>
-            </label>
-            <label>End
-                <input type="datetime-local" name="end">
-            </label>
-            <label>Booking Id / Reference
-                <input type="text" name="bookingId">
-            </label>
+    <form action="/trips/<%= trip._id %>/reservations" method="POST" class="grid-form">
+        <div class="grid-column-left">
+            <div>
+                <label>Related To
+                    <select name="destination">
+                        <option></option>
+                    <% trip.destinations.forEach(function(d){ %>
+                        <option value="<%= d._id %>"><%= d.location %></option>
+                    <% }) %>
+                    </select>
+                </label>
+            </div>
+            <div>
+                <label>Type
+                    <select name="reservationType">
+                        <option></option>
+                        <option value="lodging">lodging</option>
+                        <option value="activity">activity</option>
+                    </select>
+                </label>
+            </div>
+            <div>
+                <label>Name
+                    <input type="text" name="name" required> 
+                </label>
+            </div>
+            <div>
+                <label>Start
+                    <input type="datetime-local" name="start" required>
+                </label>
+            </div>
+            <div>
+                <label>End
+                    <input type="datetime-local" name="end">
+                </label>
+            </div>
+            <div>
+                <label>Booking Id / Reference
+                    <input type="text" name="bookingId">
+                </label>    
+            </div>
         </div>
-        <div class="flex-form-submit">
+        <div class="grid-column">
             <div class="animate-btn form-submit-div seashell">
                 <input class="form-submit-input" type="submit" value="ADD">
             </div>
