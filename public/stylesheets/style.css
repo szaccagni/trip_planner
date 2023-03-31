@@ -22,7 +22,7 @@ body, input[type=submit] {
 }
 
 .uniform-padding {
-  padding: 0 15rem
+  padding: 0 15rem;
 }
 
 .center-me {
@@ -448,6 +448,10 @@ body, input[type=submit] {
   width: 70%;
 }
 
+.activity {
+  padding: 0 12px;
+}
+
 @media screen and (max-width: 550px) {
   .homepg div {
     margin: 10px 0;
@@ -455,6 +459,14 @@ body, input[type=submit] {
 
   #login-proverb {
     width: 80%;
+  }
+
+  .uniform-padding {
+    padding: 1rem 1rem;
+  }
+
+  .grid-form {
+    grid-template-columns: 100%;
   }
 }
 
@@ -465,6 +477,12 @@ body, input[type=submit] {
 
   .trip-square {
     margin: 0px 0rem 3rem 0;
+  }
+}
+
+@media screen and (max-width: 1050px) and (min-width: 550px) {
+  .uniform-padding {
+    padding: 1rem 7rem;
   }
 }
 
