@@ -328,7 +328,7 @@ body, input[type=submit] {
   text-align: left;
 }
 
-.grid-column-right {
+.grid-column-end {
   display: flex;
   justify-content: flex-end;
 }
@@ -336,6 +336,7 @@ body, input[type=submit] {
 .single-column {
   text-align: center;
   width: 80%;
+  margin: auto;
 }
 
 .width-100 {
@@ -442,14 +443,11 @@ body, input[type=submit] {
 .reservation-card {
   background-color: #F5F5F5;
   margin-bottom: 2rem;
+  padding: 0 12px;
 }
 
 .reservation-card hr {
   width: 70%;
-}
-
-.activity {
-  padding: 0 12px;
 }
 
 @media screen and (max-width: 550px) {
@@ -467,6 +465,30 @@ body, input[type=submit] {
 
   .grid-form {
     grid-template-columns: 100%;
+  }
+
+  .trip-route {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .single-column {
+    width: 100%;
+  }
+  
+  .center-me {
+    flex-direction: column;
+  }
+
+  .grid-column-end {
+    margin-top: 15px;
+    justify-content: center;
+  }
+
+  .mobile-trash-form {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
   }
 }
 

@@ -45,13 +45,13 @@
                 </label>
             </div>
         </div>
-        <div class="grid-column-right">
+        <div class="grid-column-end">
             <div class="animate-btn form-submit-div seashell">
                 <input class="form-submit-input" type="submit" value="UPDATE">
             </div>
         </div>
     </form>
-    <form action="/reservations/<%= reservation._id %>?_method=DELETE" method="POST">
+    <form action="/reservations/<%= reservation._id %>?_method=DELETE" method="POST" class="mobile-trash-form">
         <label>
         <input style="display:none" type="submit">
         <div class="form-submit-div animate-btn circle-btn red" style="cursor:pointer">
