@@ -58,10 +58,18 @@ async function deleteTrip(req, res, next) {
 function updateImg(req,res) {
     Trip.findById(req.params.id, async function(err, trip) {
         const photoData = await helper.getPhotoData(trip.macroLocation, 100)
-        const randIdx = Math.floor(Math.random() * 100)
-        trip.imgURL = photoData.photos[randIdx].src.original
-        trip.bannerColor = photoData.photos[randIdx].avg_color
-        trip.save()
+        let newPhoto, i = 0
+        while (newPhoto === undefined && i < 5) {
+            const randIdx = Math.floor(Math.random() * 100)
+            if (photoData.photos[randIdx]?.src.original) newPhoto = photoData.photos[randIdx]
+            i++
+        }
+        // only update if a newPhoto was found
+        if (newPhoto) {
+            trip.imgURL = newPhoto.src.original
+            trip.bannerColor = newPhoto.avg_color
+            trip.save()
+        }
         res.redirect('/trips')
     })
 }
