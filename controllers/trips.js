@@ -27,8 +27,8 @@ async function create(req, res) {
 
     const photoData = await helper.getPhotoData(req.body.macroLocation, 1)
 
-    req.body.imgURL = photoData.photos[0].src.original
-    req.body.bannerColor = photoData.photos[0].avg_color
+    req.body.imgURL = photoData.photos[0]?.src.original || ''
+    req.body.bannerColor = photoData.photos[0]?.avg_color || ''
 
     Trip.create(req.body, function(err, newTrip) {
         res.redirect(`/trips/${newTrip._id}/destinations/new`)
